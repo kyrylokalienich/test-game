@@ -1,6 +1,6 @@
 {
-    "name": "Webgl-Test",
-    "short_name": "Webgl-Test",
+    "name": "TgFarmUnity",
+    "short_name": "TgFarmUnity",
     "start_url": "index.html",
     "display": "fullscreen",
     "background_color": "#231F20",
