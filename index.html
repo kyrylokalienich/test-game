@@ -27,6 +27,8 @@
         <div id="unity-progress-bar-empty">
           <div id="unity-progress-bar-full"></div>
         </div>
+        <button id="wallet-button"
+        onclick="alert('The request has been approved!');">Connect Wallet</button>
       </div>
       <div id="unity-warning"> </div>
     </div>
@@ -71,7 +73,7 @@
       var loaderUrl = buildUrl + "/8ab03579679fcf0c9091ff0e750b816f.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/1a62fc890912f00df123cf307aa2ec67.data",
+        dataUrl: buildUrl + "/70e2b3015a097a926c4eab5d1fdd3696.data",
         frameworkUrl: buildUrl + "/c78f5d7f8422f199bd9200389e21261a.framework.js",
         codeUrl: buildUrl + "/e72aa143ec123dd4fb9f3eb05b5cbf7d.wasm",
         streamingAssetsUrl: "StreamingAssets",
@@ -131,7 +133,7 @@
 
             const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
                 manifestUrl: 'ttps://kyrylokalienich.github.io/test-game//tonconnect-manifest.json',
-                buttonRootId: 'id'
+                buttonRootId: 'wallet-button'
             });
             tonConnectUI.openModal();
 
