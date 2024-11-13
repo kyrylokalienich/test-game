@@ -71,7 +71,7 @@
       var loaderUrl = buildUrl + "/2946e397bd2d4af03d14d26803f7e962.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/02d45ba4e9392b9d73eedf415f09675d.data",
+        dataUrl: buildUrl + "/386ef1f8658928db6f83a5add3332e99.data",
         frameworkUrl: buildUrl + "/a341e2ae83b174263ea21f0b64f2531d.framework.js",
         codeUrl: buildUrl + "/977a65be7f75422d0647572357e5152b.wasm",
         streamingAssetsUrl: "StreamingAssets",
@@ -132,6 +132,8 @@
             const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
               manifestUrl: 'https://game-prod.stars.farm/tonconnect-manifest.json'
             });
+
+            window.tonConnectUI = tonConnectUI;
 
             const unsubscribe2 = tonConnectUI.onStatusChange(
                 walletAndwalletInfo => {
