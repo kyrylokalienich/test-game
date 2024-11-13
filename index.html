@@ -71,8 +71,8 @@
       var loaderUrl = buildUrl + "/2946e397bd2d4af03d14d26803f7e962.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/fc664035c550f8ee729477993fd46e17.data",
-        frameworkUrl: buildUrl + "/f25b6d1fde1a40d36026f1f7ed6230f2.framework.js",
+        dataUrl: buildUrl + "/02d45ba4e9392b9d73eedf415f09675d.data",
+        frameworkUrl: buildUrl + "/a341e2ae83b174263ea21f0b64f2531d.framework.js",
         codeUrl: buildUrl + "/977a65be7f75422d0647572357e5152b.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
@@ -124,8 +124,36 @@
             const unsubscribe = connector.onStatusChange(
             walletInfo => {
                 console.log(walletInfo);
+                console.log("connector.onStatusChange walletInfo: " + walletInfo);
                 // update state/reactive variables to show updates in the ui
             } );
+
+
+            const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+              manifestUrl: 'https://game-prod.stars.farm/tonconnect-manifest.json'
+            });
+
+            const unsubscribe2 = tonConnectUI.onStatusChange(
+                walletAndwalletInfo => {
+                    // update state/reactive variables to show updates in the ui
+
+                    console.log('OnStatus Change');
+                    console.log(JSON.stringify(walletAndwalletInfo));
+
+                    const currentWallet = tonConnectUI.wallet;
+                    const currentWalletInfo = tonConnectUI.walletInfo;
+                    const currentAccount = tonConnectUI.account;
+                    const currentIsConnectedStatus = tonConnectUI.connected;
+
+                    console.log("currentWallet: " + JSON.stringify(currentWallet));
+                    console.log("currentWalletInfo: " + JSON.stringify(currentWalletInfo));
+                    console.log("currentAccount: " + JSON.stringify(currentAccount));
+                    console.log("currentIsConnectedStatus: " + JSON.stringify(currentIsConnectedStatus));
+
+
+                } 
+            );
+
 
           }
           else{
