@@ -84,8 +84,8 @@
       var loaderUrl = buildUrl + "/5f9a666bddfc666b3677e9a675d33761.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/96cbff6777a73d8454772246f92799d7.data",
-        frameworkUrl: buildUrl + "/de1ee924620b40eb819a19f0247f8c32.framework.js",
+        dataUrl: buildUrl + "/03ebecebb14df69a091531ee9f7097cb.data",
+        frameworkUrl: buildUrl + "/47af43469e11f8dfabc8371a225e1f03.framework.js",
         codeUrl: buildUrl + "/5b07582508d332993d4c9db0458c4b6c.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
@@ -137,17 +137,17 @@
                 // update state/reactive variables to show updates in the ui
             } );
 
-            window.unityInstance.SendMessage("Boot", "SetGlobalSafeArea", JSON.stringify(Telegram.WebApp.safeAreaInset));
-            window.unityInstance.SendMessage("UIManager", "SetGlobalSafeArea", JSON.stringify(Telegram.WebApp.safeAreaInset));
+            window.unityInstance.SendMessage("Boot", "SetGlobalSafeArea", JSON.stringify(Telegram.WebApp.contentSafeAreaInset));
+            window.unityInstance.SendMessage("UIManager", "SetGlobalSafeArea", JSON.stringify(Telegram.WebApp.contentSafeAreaInset));
 
-            window.Telegram.WebApp.onEvent('safeAreaChanged', function() {
+            window.Telegram.WebApp.onEvent('contentSafeAreaChanged', function() {
                 // Access the current content safe area insets
-                const safeAreaInset = Telegram.WebApp.safeAreaInset;
+                const contentSafeAreaInsets = Telegram.WebApp.contentSafeAreaInset;
                 // Log the updated safe area insets
-                console.log('Content Safe Area Insets Changed:', JSON.stringify(safeAreaInset));
+                console.log('Content Safe Area Insets Changed:', JSON.stringify(contentSafeAreaInset));
                 // Example: Adjust your app's UI or layout based on the new safe area insets
-                window.unityInstance.SendMessage("Boot", "SetGlobalSafeArea", JSON.stringify(safeAreaInset));
-                window.unityInstance.SendMessage("UIManager", "SetGlobalSafeArea", JSON.stringify(safeAreaInset));
+                window.unityInstance.SendMessage("Boot", "SetGlobalSafeArea", JSON.stringify(contentSafeAreaInsets));
+                window.unityInstance.SendMessage("UIManager", "SetGlobalSafeArea", JSON.stringify(contentSafeAreaInsets));
             });
 
           }
