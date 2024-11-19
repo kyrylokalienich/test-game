@@ -36,6 +36,11 @@
         window.Telegram.WebApp.requestFullscreen();
 
 
+        console.log("safeAreaInset");
+        console.log(JSON.stringify(window.Telegram.WebApp.safeAreaInset));
+        console.log("contentSafeAreaInset");
+        console.log(JSON.stringify(window.Telegram.WebApp.contentSafeAreaInset));
+
         console.log(window.Telegram.WebApp.platform)
         if(window.Telegram.WebApp.platform == 'web'){
           alert("Telegram Web platfrom is not supported!");
@@ -85,7 +90,7 @@
       var loaderUrl = buildUrl + "/16d0357536424eedfce7a3b608a560bd.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/8ef3a1c55c4d024a549156bdffa788a3.data",
+        dataUrl: buildUrl + "/992717eb91182cde5b2dcaa80f6ab7e4.data",
         frameworkUrl: buildUrl + "/e7537a5f2c1130370c4fb71e71735b0a.framework.js",
         codeUrl: buildUrl + "/e4adf2d0727a3b7de093ce8e090e9235.wasm",
         streamingAssetsUrl: "StreamingAssets",
