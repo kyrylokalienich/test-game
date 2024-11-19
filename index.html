@@ -34,7 +34,6 @@
 
       if(window.Telegram && window.Telegram.WebApp){
         console.log(window.Telegram.WebApp.platform)
-
         if(window.Telegram.WebApp.platform == 'web'){
           alert("Telegram Web platfrom is not supported!");
           window.Telegram.WebApp.close();
@@ -80,12 +79,12 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/9415e799b4025a2c4f948aa6a489a5c7.loader.js";
+      var loaderUrl = buildUrl + "/16d0357536424eedfce7a3b608a560bd.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/1ac540b02c1fc9841a8ffa384132fd34.data",
-        frameworkUrl: buildUrl + "/ebc341a1563863d2d7440783d75f6325.framework.js",
-        codeUrl: buildUrl + "/1195b2688c9abbc6d5626aa64a4bc551.wasm",
+        dataUrl: buildUrl + "/1bf6f31c5b0fad7a7fcf2b4571873bf5.data",
+        frameworkUrl: buildUrl + "/e7537a5f2c1130370c4fb71e71735b0a.framework.js",
+        codeUrl: buildUrl + "/e4adf2d0727a3b7de093ce8e090e9235.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "TgFarmUnity",
@@ -130,6 +129,7 @@
             window.unityInstance.SendMessage("Boot", "SetWebAppInitData", JSON.stringify(window.Telegram.WebApp.initDataUnsafe));
             window.Telegram.WebApp.enableClosingConfirmation();
             window.Telegram.WebApp.disableVerticalSwipes();
+            window.Telegram.WebApp.requestFullscreen();
             //window.unityInstance.SendMessage("Boot", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
 
 
