@@ -81,12 +81,12 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/16d0357536424eedfce7a3b608a560bd.loader.js";
+      var loaderUrl = buildUrl + "/f3ca69e2ba56e7132abbcd26433f9503.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/421d6fdc2a0e8ad044444b96e7344ff9.data",
-        frameworkUrl: buildUrl + "/e7537a5f2c1130370c4fb71e71735b0a.framework.js",
-        codeUrl: buildUrl + "/e4adf2d0727a3b7de093ce8e090e9235.wasm",
+        dataUrl: buildUrl + "/46ddcd663e5a7f660c0037b03bafbdaa.data",
+        frameworkUrl: buildUrl + "/3e7eabcd2024ef32090c1670d45ff3fc.framework.js",
+        codeUrl: buildUrl + "/d6d661666e32b4695c503504ea043c2f.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "TgFarmUnity",
@@ -120,19 +120,14 @@
           loadingBar.style.display = "none";
           window.unityInstance = unityInstance;
           window.unityInstance.SendMessage("Boot", "Log", "AAAAAAAAAA from js");
-    
-          console.log('aaaa');
 
           if(window.Telegram && window.Telegram.WebApp){
-            console.log('aaaa');
-            console.log('Instance created',window.Telegram.WebApp);
+            console.log('Instance created', window.Telegram.WebApp);
             window.unityInstance.SendMessage("Boot", "Log", "SetWebAppUser from js");
 
             window.unityInstance.SendMessage("Boot", "SetWebAppInitData", JSON.stringify(window.Telegram.WebApp.initDataUnsafe));
             window.Telegram.WebApp.enableClosingConfirmation();
             window.Telegram.WebApp.disableVerticalSwipes();
-            //window.unityInstance.SendMessage("Boot", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
-
 
             const connector = new TonConnectSDK.TonConnect();
             const unsubscribe = connector.onStatusChange(
@@ -142,12 +137,18 @@
                 // update state/reactive variables to show updates in the ui
             } );
 
+            window.unityInstance.SendMessage("Boot", "SetGlobalSafeArea", JSON.stringify(Telegram.WebApp.contentSafeAreaInset));
+            window.unityInstance.SendMessage("UIManager", "SetGlobalSafeArea", JSON.stringify(Telegram.WebApp.contentSafeAreaInset));
 
-
-            console.log("safeAreaInset");
-            console.log(JSON.stringify(window.Telegram.WebApp.safeAreaInset));
-            console.log("contentSafeAreaInset");
-            console.log(JSON.stringify(window.Telegram.WebApp.contentSafeAreaInset));
+            window.Telegram.WebApp.contentSafeAreaChanged('contentSafeAreaChanged', function() {
+                // Access the current content safe area insets
+                const contentSafeAreaInsets = Telegram.WebApp.contentSafeAreaInset;
+                // Log the updated safe area insets
+                console.log('Content Safe Area Insets Changed:', JSON.stringify(contentSafeAreaInset));
+                // Example: Adjust your app's UI or layout based on the new safe area insets
+                window.unityInstance.SendMessage("Boot", "SetGlobalSafeArea", JSON.stringify(contentSafeAreaInsets));
+                window.unityInstance.SendMessage("UIManager", "SetGlobalSafeArea", JSON.stringify(contentSafeAreaInsets));
+            });
 
           }
           else{
