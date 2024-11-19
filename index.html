@@ -81,12 +81,12 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/f3ca69e2ba56e7132abbcd26433f9503.loader.js";
+      var loaderUrl = buildUrl + "/81082008304911fbd1d143942a133c27.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/46ddcd663e5a7f660c0037b03bafbdaa.data",
-        frameworkUrl: buildUrl + "/3e7eabcd2024ef32090c1670d45ff3fc.framework.js",
-        codeUrl: buildUrl + "/d6d661666e32b4695c503504ea043c2f.wasm",
+        dataUrl: buildUrl + "/e34bc36a134fb97a5869be06fa7d5031.data",
+        frameworkUrl: buildUrl + "/2df7e57fc5a1afd688e0f5d1e3713bfe.framework.js",
+        codeUrl: buildUrl + "/e30324b67e2ba42a3401e841ba681f8c.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "TgFarmUnity",
@@ -140,7 +140,7 @@
             window.unityInstance.SendMessage("Boot", "SetGlobalSafeArea", JSON.stringify(Telegram.WebApp.contentSafeAreaInset));
             window.unityInstance.SendMessage("UIManager", "SetGlobalSafeArea", JSON.stringify(Telegram.WebApp.contentSafeAreaInset));
 
-            window.Telegram.WebApp.contentSafeAreaChanged('contentSafeAreaChanged', function() {
+            window.Telegram.WebApp.onEvent('contentSafeAreaChanged', function() {
                 // Access the current content safe area insets
                 const contentSafeAreaInsets = Telegram.WebApp.contentSafeAreaInset;
                 // Log the updated safe area insets
