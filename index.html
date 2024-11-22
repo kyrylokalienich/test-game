@@ -33,7 +33,12 @@
     <script>
 
       if(window.Telegram && window.Telegram.WebApp){
-        window.Telegram.WebApp.requestFullscreen();
+        try{
+          window.Telegram.WebApp.requestFullscreen();
+        }
+        catch{
+          console.log("Fullscreen not supported");
+        }
 
         console.log(window.Telegram.WebApp.platform)
         if(window.Telegram.WebApp.platform == 'web'){
@@ -81,12 +86,12 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/bf10475e1947f433a28f720d2dc49dc2.loader.js";
+      var loaderUrl = buildUrl + "/0d66da00c5a0fb3e2869f226cfc2c93f.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/3c63446874d8a88b3af9c5b0086e900f.data",
-        frameworkUrl: buildUrl + "/be0c12ad334141f5e80bcd531b93b806.framework.js",
-        codeUrl: buildUrl + "/753344683cd0abaff7c5bc66c3923dbf.wasm",
+        dataUrl: buildUrl + "/e907a623511698b85b6eabc49603bebe.data",
+        frameworkUrl: buildUrl + "/79f6a1eaccc2eb322ac5af76427a4991.framework.js",
+        codeUrl: buildUrl + "/b5540b9b0f63874917ba996a746f1d76.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "TgFarmUnity",
@@ -140,7 +145,8 @@
             window.unityInstance.SendMessage("Boot", "SetGlobalSafeArea", JSON.stringify(Telegram.WebApp.contentSafeAreaInset));
             window.unityInstance.SendMessage("UIManager", "SetGlobalSafeArea", JSON.stringify(Telegram.WebApp.contentSafeAreaInset));
 
-            window.Telegram.WebApp.onEvent('contentSafeAreaChanged', function() {
+            try{
+              window.Telegram.WebApp.onEvent('contentSafeAreaChanged', function() {
                 // Access the current content safe area insets
                 const contentSafeAreaInsets = Telegram.WebApp.contentSafeAreaInset;
                 // Log the updated safe area insets
@@ -149,6 +155,11 @@
                 window.unityInstance.SendMessage("Boot", "SetGlobalSafeArea", JSON.stringify(contentSafeAreaInsets));
                 window.unityInstance.SendMessage("UIManager", "SetGlobalSafeArea", JSON.stringify(contentSafeAreaInsets));
             });
+            }
+            catch{
+             
+            }
+
 
           }
           else{

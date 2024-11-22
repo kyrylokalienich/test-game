@@ -22,17 +22,18 @@ body { padding: 0; margin: 0 }
 }
 #unity-logo { }
 #unity-progress-bar-empty { 
-    margin-left: auto;
+    /*margin-left: auto;
     margin-right: auto;
     margin-bottom: 10vh;
     margin-top: 10px;
-    align-self: end;
+    align-self: end;*/
     width: 300px;
     height: 25px;
-    /* background: url(progress-bar-empty-light.png) no-repeat center; */
-    /* background-size: cover; */
-    /* padding: 6px 4px; */
-    /* margin: 0px 5px; */
+    
+    position: absolute;
+    bottom: calc(10vh - 13px);
+    left: calc(50vw - 150px); 
+
     border: solid 4px black;
 
 }
