@@ -86,12 +86,12 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/5fc5ad44b1aed6da6318ef69cf89df21.loader.js";
+      var loaderUrl = buildUrl + "/bce641b2fbe3f8f55b08331d9ac0353a.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/83f01dc4562cce57e55f2b6aad228ae3.data",
-        frameworkUrl: buildUrl + "/edcce317bafe15f84b3a32b86f8c6fd9.framework.js",
-        codeUrl: buildUrl + "/c2edfba116def9e1a705e464b7ed4527.wasm",
+        dataUrl: buildUrl + "/f037363c137092ac14dc1a4ec3258a0b.data",
+        frameworkUrl: buildUrl + "/664fb1538fe6e8081ba59aaad296921f.framework.js",
+        codeUrl: buildUrl + "/1f49a06c94d0fea3644accdd76bfe8db.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "TgFarmUnity",
@@ -147,14 +147,18 @@
 
             try{
               window.Telegram.WebApp.onEvent('contentSafeAreaChanged', function() {
-                // Access the current content safe area insets
                 const contentSafeAreaInsets = Telegram.WebApp.contentSafeAreaInset;
-                // Log the updated safe area insets
                 console.log('Content Safe Area Insets Changed:', JSON.stringify(contentSafeAreaInset));
-                // Example: Adjust your app's UI or layout based on the new safe area insets
                 window.unityInstance.SendMessage("Boot", "SetGlobalSafeArea", JSON.stringify(contentSafeAreaInsets));
                 window.unityInstance.SendMessage("UIManager", "SetGlobalSafeArea", JSON.stringify(contentSafeAreaInsets));
-            });
+              });
+
+              window.Telegram.WebApp.onEvent('safeAreaChanged', function() {
+                const safeAreaInset  = Telegram.WebApp.safeAreaInset ;
+                console.log('Safe Area Insets Changed:', JSON.stringify(safeAreaInset));
+                window.unityInstance.SendMessage("UIManager", "SetGlobalSafeArea2", JSON.stringify(safeAreaInset));
+              });
+
             }
             catch{
              
