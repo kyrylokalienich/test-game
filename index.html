@@ -86,12 +86,12 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/f7ca14c31da5baef0ea5615a07409cf6.loader.js";
+      var loaderUrl = buildUrl + "/eb27e0334f3fa76ec4ca0d8aef0d45a9.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/622e0e986eb16f8a4bc64ca14747c384.data",
-        frameworkUrl: buildUrl + "/664fb1538fe6e8081ba59aaad296921f.framework.js",
-        codeUrl: buildUrl + "/fcf45c44134c052d836713bea454d493.wasm",
+        dataUrl: buildUrl + "/2a0de0e8600e3186bb9fd0ebe24985c5.data",
+        frameworkUrl: buildUrl + "/f1817cdbc60bf9c95f3c2148b8f069e2.framework.js",
+        codeUrl: buildUrl + "/5db97e99575d55d0bb538cbcbb339416.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "TgFarmUnity",
@@ -149,6 +149,7 @@
               window.Telegram.WebApp.onEvent('contentSafeAreaChanged', function() {
                 const contentSafeAreaInsets = Telegram.WebApp.contentSafeAreaInset;
                 console.log('Content Safe Area Insets Changed:', JSON.stringify(contentSafeAreaInset));
+                window.unityInstance.SendMessage("UIManager", "SetPlatform", window.Telegram.WebApp.platform);
                 window.unityInstance.SendMessage("Boot", "SetGlobalSafeArea", JSON.stringify(contentSafeAreaInsets));
                 window.unityInstance.SendMessage("UIManager", "SetGlobalSafeArea", JSON.stringify(contentSafeAreaInsets));
               });
@@ -156,6 +157,7 @@
               window.Telegram.WebApp.onEvent('safeAreaChanged', function() {
                 const safeAreaInset  = Telegram.WebApp.safeAreaInset ;
                 console.log('Safe Area Insets Changed:', JSON.stringify(safeAreaInset));
+                window.unityInstance.SendMessage("UIManager", "SetPlatform", window.Telegram.WebApp.platform);
                 window.unityInstance.SendMessage("UIManager", "SetGlobalSafeArea2", JSON.stringify(safeAreaInset));
               });
 
