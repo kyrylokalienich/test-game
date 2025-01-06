@@ -7,17 +7,13 @@
     <link rel="stylesheet" href="TemplateData/style.css">
     <link rel="manifest" href="manifest.webmanifest">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@ton/core@0.59.0/dist/index.min.js"></script>
     <script src="https://unpkg.com/@tonconnect/sdk@latest/dist/tonconnect-sdk.min.js"></script>
     <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
 
     <script src='//niphaumeenses.net/vignette.min.js' data-zone='8713113' data-sdk='show_8713113'></script>
-    <script>
-      // Initialize Eruda
-      eruda.init();
-    </script>
+
   </head>
   <body>
     <div id="unity-container">
@@ -33,6 +29,7 @@
     <script>
 
       if(window.Telegram && window.Telegram.WebApp){
+
         try{
           window.Telegram.WebApp.requestFullscreen();
         }
@@ -86,12 +83,12 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/56cf44ed8f1410742b049b0ef3b6027b.loader.js";
+      var loaderUrl = buildUrl + "/cfadb55726add2330dfb10b98695dabd.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/96a458ed1eeb313b7b4e0d09849ff521.data.unityweb",
-        frameworkUrl: buildUrl + "/d2b11d61ffa022f59c2f1a1757de86c0.framework.js.unityweb",
-        codeUrl: buildUrl + "/ecf9224791e3cb53ed99c6ef0de2de3c.wasm.unityweb",
+        dataUrl: buildUrl + "/4cbe227d173acfa1d1c0f3b2fa93bf2e.data.unityweb",
+        frameworkUrl: buildUrl + "/b0240155c08cd75393c5fea616926f89.framework.js.unityweb",
+        codeUrl: buildUrl + "/c460968386e6576230dc759df77f183c.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "TgFarmUnity",
@@ -145,6 +142,7 @@
             window.unityInstance.SendMessage("Boot", "SetGlobalSafeArea", JSON.stringify(Telegram.WebApp.contentSafeAreaInset));
             window.unityInstance.SendMessage("UIManager", "SetGlobalSafeArea", JSON.stringify(Telegram.WebApp.contentSafeAreaInset));
 
+
             try{
               window.Telegram.WebApp.onEvent('contentSafeAreaChanged', function() {
                 const contentSafeAreaInsets = Telegram.WebApp.contentSafeAreaInset;
@@ -166,6 +164,7 @@
              
             }
 
+           
 
           }
           else{
